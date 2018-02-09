@@ -1,0 +1,87 @@
+create table product(
+ProductID varchar(20) Primary key,
+UPC varchar(20),
+BrandName varchar(20),
+VendorName varchar(20),
+ProductName varchar(20),
+Description varchar(150));
+ 
+ 
+
+create table worksfor
+(
+emp_id varchar(20),
+store_id varchar(20),
+primary key(emp_id,store_id)
+foreign key(emp_id) references customer(cust_id),
+foreign key(store_id) references store
+);
+
+
+
+create table Store(
+store_id varchar(20) Primary key,
+street varchar (20),
+city varchar(20),
+phonenumber varchar(25),
+storage_capacity integer,
+);
+ 
+ 
+Create table Customer(
+cust_id varchar(20) NOT NULL,
+firstname varchar(20) NOT NULL,
+lastname varchar(20) NOT NULL,
+email varchar(50) NOT NULL,
+password varchar(30) NOT NULL,
+street varchar(20),
+city char(20),
+zipcode number(10),
+phonenumber number(15),
+Datejoined date NOT NULL,
+usertype varchar(30) NOT NULL,
+primary key(cust_id));
+
+create table checkout(
+checkout_id varchar(45) 
+prod_id varchar(20) 
+store_id varchar(20)
+quantity varchar(50)
+Primary key(checkout_id,prod_id,store_id));
+
+ 
+Create table Inventory(
+ 
+prod_id varchar(20) Primary key,
+store_id varchar(20) Primary key,
+quantity varchar(50),
+price varchar(20),
+Foreign key(prod_id) references Product(ProductID),
+Foreign key(store_id) references Store(store_id),
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
